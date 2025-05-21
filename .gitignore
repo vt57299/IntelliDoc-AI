@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+.Python
+env/
+venv/
+ENV/
+.venv/
+
+# ------------------------
+# Environment Variables
+# ------------------------
+*.env
+!.env.example
+
+# ------------------------
+# Chroma Vector Store
+# ------------------------
+backend/data/vectorstore/
+backend/data/metadata.json

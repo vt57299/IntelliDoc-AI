@@ -1,0 +1,16 @@
+fastapi==0.115.9
+uvicorn==0.34.0
+python-multipart==0.0.20
+python-dotenv==1.1.0
+requests==2.32.3
+
+# document processing
+pymupdf==1.25.5
+pytesseract==0.3.13
+pillow==10.3.0
+
+# Chunking, Embeddings & Vector Storage
+chromadb==1.0.9
+sentence-transformers==4.1.0
+google-genai==1.15.0
+
