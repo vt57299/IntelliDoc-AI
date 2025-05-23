@@ -1,99 +1,119 @@
-# 🧠 Document Intelligence Chatbot – GenAI Internship Assignment
+# 🧠 IntelliDoc AI
 
-This project is a production-grade, AI-powered document intelligence system that allows users to upload multiple documents (PDFs and images), ask natural language questions, and extract answers with precise citations and theme summaries.
-
-> 🚀 Built as a part of the Wasserstoff Gen-AI Internship task.
+**IntelliDoc AI** is an intelligent document analysis platform that enables users to upload, query, and extract insights from multiple PDFs and scanned images. With a powerful FastAPI backend and an intuitive Streamlit interface, the system supports natural language questions, citation-level responses, and high-level theme synthesis across documents.
 
 ---
 
-## ✨ Features
+## 🚀 Features
 
 - 📄 Upload and process 75+ documents (PDFs, scanned images)
-- 🔍 Query all or selected documents using natural language
-- 📌 Get answers with citations (document → page → paragraph)
-- 🧩 Extract common themes across all documents using Gemini Pro
-- 📊 Track and view all uploaded documents via clean API or UI
-- 💬 Visual interface built using Streamlit (optional)
+- 🔍 Ask questions across all or specific documents
+- 📌 Receive answers with precise citations (page, paragraph)
+- 🧩 Extract common themes using Gemini Pro
+- 🧾 OCR support for scanned PDFs and images via Tesseract
+- 💬 Streamlit-based user interface
+- 🐳 Docker-ready, cross-platform compatible
 
 ---
 
 ## 🧠 AI Models Used
 
-| Functionality             | Model / Provider           |
-|--------------------------|----------------------------|
-| Answering Questions      | `llama3-70b-8192` via Groq |
-| Theme Extraction         | `Gemini 1.5 Pro` via Google AI Studio |
+| Task                | Model / Provider           |
+|---------------------|----------------------------|
+| Answering Questions | `llama3-70b-8192` via Groq |
+| Theme Extraction    | `Gemini 1.5 Pro` via Google AI Studio |
 
 ---
 
 ## 🧱 Tech Stack
 
-- 🐍 Python 3.11
-- 🚀 FastAPI (Backend API)
-- 🧠 ChromaDB (Vector DB)
-- 🤖 SentenceTransformers for embeddings
-- 🧾 Tesseract OCR + PyMuPDF (for PDFs/images)
-- 🧑‍💻 Streamlit (Frontend UI)
-- 🐳 Docker & Docker Compose (Deployment)
+| Layer     | Technology                        |
+|-----------|------------------------------------|
+| Backend   | FastAPI, ChromaDB, SentenceTransformers |
+| OCR       | PyMuPDF, Tesseract OCR            |
+| LLMs      | Groq (LLaMA 3), Gemini Pro        |
+| Frontend  | Streamlit                         |
+| Deployment| Docker + Docker Compose           |
 
 ---
 
-## 📦 Folder Structure
+## 📦 Project Structure
 
 ```
 
-chatbot\_theme\_identifier/
-├── backend/           # FastAPI app
-│   ├── app/           # All backend logic (API, services, core)
-│   ├── data/          # OCR output, vector DB, metadata
-│   ├── .env           # (Ignored) user-defined API keys
-│   └── requirements.txt
-├── frontend/          # Streamlit app
+IntelliDoc-AI/
+├── backend/
+│   ├── app/               # FastAPI logic
+│   ├── Dockerfile         # Backend Docker definition
+│   ├── requirements.txt
+│   ├── .env.example       # API key template
+├── frontend/
 │   ├── app.py
-│   └── requirements.txt
-├── demo/              # Demo video of the app
-├── .env.example       # API key template
-├── docker-compose.yml
+│   ├── Dockerfile         # Frontend Docker definition
+│   ├── requirements.txt
+├── docker-compose.yml     # Compose both services
+├── demo/
+│   └── demo.mp4           # Demo video of the app
 └── README.md
 
 ````
 
 ---
 
-## ⚙️ Setup (Docker - Recommended)
+## 📹 Demo
 
-> 🛑 Make sure you create your `.env` file with API keys before building.
+> 🎬 Watch IntelliDoc AI in action:
 
-### 1. Create `.env` file
+[![Watch the demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/hqdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
 
-Copy from template:
+> *(Replace `YOUR_VIDEO_ID` with the actual video ID if hosted on YouTube. If hosted elsewhere, embed a direct video link with markdown or HTML depending on platform support.)*
+
+---
+
+## 🚀 Getting Started
+
+### ✅ Clone the Repository
+
 ```bash
-cp backend/.env.example backend/.env
+git clone https://github.com/yourusername/IntelliDoc-AI.git
+cd IntelliDoc-AI
 ````
 
-Then edit `backend/.env` and add your keys:
+---
+
+## 🐳 Run with Docker (Recommended)
+
+### 1. Configure API Keys
+
+Copy and configure your `.env`:
+
+```bash
+cp backend/.env.example backend/.env
+```
+
+Add your actual API keys:
 
 ```env
 GEMINI_API_KEY=your-gemini-key
 GROQ_API_KEY=your-groq-key
 ```
 
-### 2. Build and Run
+### 2. Build & Start Containers
 
 ```bash
 docker-compose up --build
 ```
 
-### Access:
+### 3. Access the App
 
-* **Frontend UI**: [http://localhost:8501](http://localhost:8501)
-* **Backend API docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
+* Frontend UI: [http://localhost:8501](http://localhost:8501)
+* Backend API Docs: [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ---
 
-## ⚙️ Setup (Manual / No Docker)
+## ⚙️ Run Locally (Without Docker)
 
-### 1. Backend
+### Backend
 
 ```bash
 cd backend
@@ -102,7 +122,7 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-### 2. Frontend
+### Frontend
 
 ```bash
 cd frontend
@@ -112,54 +132,39 @@ streamlit run app.py
 
 ---
 
-## 🔐 API Key Handling
+## 🔐 Environment Variables
 
-This project requires access to:
+Located in `backend/.env`. Required for secure access to LLM APIs.
 
-* **Gemini API** (via Google AI Studio – no billing required)
-* **Groq API** (for LLaMA 3 model inference)
+```env
+GEMINI_API_KEY=your-gemini-key
+GROQ_API_KEY=your-groq-key
+```
 
-> Keys are loaded securely using `.env` file and not committed to version control.
+> ❗ Never commit this file. Use `.env.example` for sharing.
 
 ---
 
-## 🧪 API Endpoints
+## 🤝 Contributing
 
-### `POST /documents/upload`
+Contributions are welcome!
 
-Upload multiple PDFs/images and extract text + embeddings
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/your-feature`)
+3. Make your changes
+4. Commit and push (`git commit -m 'Add your feature'`)
+5. Open a pull request
 
-### `GET /documents/list`
-
-View metadata of all uploaded documents
-
-### `POST /query`
-
-Ask a question across all or specific documents
-
-**Query Parameters:**
-
-* `doc_ids[]` — (optional) List of specific document IDs to filter
-
-**Response:**
-
-* Answer
-* Citations with `doc_id`, `page`, `paragraph`, and snippet
-
-### `GET /query/themes`
-
-Extract themes and topic clusters across all stored documents
-
+---
 
 ## 📎 License
 
-This code was created for academic & project evaluation purposes. Do not reuse any keys or credentials embedded during testing.
+This project is intended for demonstration, education, and evaluation purposes only.
 
 ---
 
 ## ✍️ Author
 
 **Vivek**
-Generative AI Application Engineer
+Backend & AI Systems Engineer
 [GitHub](https://github.com/vt57299) | [LinkedIn](https://linkedin.com/in/vivek-thakur-7079aa17b)
-
