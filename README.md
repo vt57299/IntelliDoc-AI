@@ -64,9 +64,7 @@ IntelliDoc-AI/
 
 > 🎬 Watch IntelliDoc AI in action:
 
-[![Watch the demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/hqdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
-
-> *(Replace `YOUR_VIDEO_ID` with the actual video ID if hosted on YouTube. If hosted elsewhere, embed a direct video link with markdown or HTML depending on platform support.)*
+https://github.com/user-attachments/assets/041a386a-a28b-4972-a23b-0312318847db
 
 ---
 
