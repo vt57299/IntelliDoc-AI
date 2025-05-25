@@ -104,8 +104,8 @@ docker-compose up --build
 
 ### 3. Access the App
 
-* Frontend UI: [http://localhost:8501](http://localhost:8501)
-* Backend API Docs: [http://localhost:8000/docs](http://localhost:8000/docs)
+* Frontend UI: `http://<your-ip>:8501`
+* Backend API Docs: `http://<your-ip>:8000/docs`
 
 ---
 
