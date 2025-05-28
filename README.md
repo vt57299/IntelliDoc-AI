@@ -138,9 +138,6 @@ Located in `backend/.env`. Required for secure access to LLM APIs.
 GEMINI_API_KEY=your-gemini-key
 GROQ_API_KEY=your-groq-key
 ```
-
-> ❗ Never commit this file. Use `.env.example` for sharing.
-
 ---
 
 ## 🤝 Contributing
